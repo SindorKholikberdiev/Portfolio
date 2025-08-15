@@ -1,0 +1,439 @@
+/* ====== 1) Design tokens (o'zgaruvchilar) ====== */
+:root {
+  --brand: #007bff;
+  --brand-600: #0066d6; /* hover va fokus uchun */
+  --ink: #111827;
+  --muted: #374151;
+  --border: #e5e7eb;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+  --gap: 16px;
+}
+
+/* ====== 2) Base / Reset ====== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ====== 3) Layout ====== */
+header {
+  position: sticky;
+  top: 0;
+  background: var(--brand);
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+}
+/* ===== Nav list (semantik ro'yxat) ===== */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--gap);
+  justify-content: flex-end;
+}
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  transition: background 0.2s ease;
+}
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  background: rgba(255, 255, 255, 0.1); /* hover va fokusda fon o'zgarishi */
+}
+/* Skip link: ko'rinmaydigan, lekin tab bosilganda ko'rinadi */
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  background: #fff;
+  color: #111827;
+  z-index: 1100; /* header ustida ko'rinadi */
+  transform: translateY(-200%); /* boshida ko'rinmaydi */
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus-visible {
+  transform: translateY(0); /* fokusda ko'rinadi */
+  outline: 2px solid var(--brand); /* fokusda outline */
+  outline-offset: 2px; /* outline va element orasidagi bo'shliq */
+}
+
+main {
+  flex: 1;
+  max-width: 980px;
+  margin: 0 auto; /* markazga */
+  padding: 0 16px; /* yon bo'shliq */
+}
+
+/* ====== 4) Sections ====== */
+section {
+  padding: 30px 10px;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 80px; /* sticky header ostida ko'rinsin */
+}
+section h2 {
+  color: var(--brand);
+}
+
+/* ====== 4.1) About section ====== */
+.about-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+/* Rasm ustuni */
+.about-photo {
+  flex: 0 0 280px; /* grow: 0, shrink: 0, base width: 280px */
+  width: 280px;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: block;
+}
+/* Matn ustuni (qolgan joyni oladi) */
+.about-text {
+  flex: 1; /* qolgan kenglikni oladi */
+  min-width: 0; /* matn uzun bo'lsa ham kengaymasin */
+  max-width: 600px; /* maksimal kenglik */
+  color: var(--muted);
+  line-height: 1.7; /* qator balandligi, o'qilishi qulay */
+}
+/* Matn ichidagi paragraflar uchun tartibli bo'shliq */
+.about-text p {
+  margin: 0 0 12px; /* pastdan 12px */
+}
+/* CTA tugma ustida bir oz bo'sh joy */
+.about-text .btn {
+  margin-top: 6px;
+  display: inline-block; /* inline bo'lib, blok kabi ishlaydi */
+}
+/* Mobile: ustunlarni bir qatorga joylash */
+@media (max-width: 768px) {
+  .about-wrap {
+    flex-direction: column;
+    align-items: flex-start; /* chapga tekslash */
+    gap: 24px; /* ustunlar orasidagi bo'shliq */
+  }
+  .about-photo {
+    width: 100%;
+    max-width: 380px;
+  }
+  .about-text {
+    text-align: left; /* matnni chapga tekslash */
+    max-width: 100%; /* maksimal kenglikni 100% ga o'rnatish */
+  }
+}
+
+/* ====== 4.2) Skills list ====== */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  /*
+    display: flex;
+    gap: var(--gap);
+    */
+}
+
+.skills-list li {
+  display: inline-block; /* inline blok, qator bo'lib joylash */
+  margin: 8px; /* har bir skill orasida bo'shliq */
+  font-size: 14px; /* matn o'lchami */
+  font-weight: 500; /* matn qalinligi */
+  text-align: center;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  color: #fff;
+  padding: 6px 12px;
+  line-height: 1.4;
+  box-shadow: var(--shadow-sm);
+  border-radius: 9999px; /* to'liq aylana */
+  white-space: nowrap; /* matnni bir qatorga joylash */
+  min-width: 120px; /* minimal kenglik */
+}
+
+/* ====== 5) Projects grid ====== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(280px, 1fr)
+  ); /* avtomatik ustunlar */
+  gap: var(--gap);
+  align-items: stretch; /* kartalar balandligi teng bo'ladi */
+}
+.card:nth-child(2) {
+  --radius: 5px;
+}
+.card {
+  display: flex; /* karta endi flex konteyner */
+  flex-direction: column; /* ichki elementlarni ustun bo'lib joylash */
+  flex: 1 1 280px;
+  max-width: none; /* grid nazorat qiladi */
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 0;
+}
+.card:hover,
+.card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover; /* rasmni to'liq qoplash */
+  width: 100%; /* kenglikni 100% ga o'rnatish */
+  height: auto; /* nisbatni saqlash */
+  border-radius: 10px;
+  display: block; /* layoutdagi mayda “gap”larni oldini oladi */
+  margin-bottom: 12px; /* rasm ostidagi bo'shliq */
+}
+.card h3 {
+  margin: 8px 0;
+  color: var(--ink);
+}
+.card p {
+  display: -webkit-box; /* matnni ko'p qatorga bo'lish */
+  -webkit-line-clamp: 2; /* maksimal 2 qator */
+  line-clamp: 2; /* CSS Line Clamp */
+  -webkit-box-orient: vertical; /* qatorlarni vertikal bo'lish */
+  overflow: hidden; /* ortiqcha matnni yashirish */
+  margin: 8px 0 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.card .btn {
+  margin-top: auto; /* pastki qismga joylash */
+  align-self: flex-start; /* chapga tekslash */
+}
+
+.card:focus-within {
+  outline: 2px solid var(--brand); /* fokusda ko'rsatish */
+  outline-offset: 2px; /* outline va element orasidagi bo'shliq */
+}
+
+.card .btn:focus-visible {
+  outline: 2px solid rgba(0, 123, 255, 0.5); /* fokusda ko'rsatish */
+  outline-offset: 2px; /* outline va element orasidagi bo'shliq */
+  border-radius: var(--radius); /* radiusni saqlash */
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+  --radius: 6px;
+  border-radius: var(--radius);
+}
+.btn:hover,
+.btn:focus-visible {
+  background: var(--brand-600);
+}
+
+/* jadval uchun minimal style */
+.table-wrap {
+  overflow-x: auto; /* jadvalni gorizontal aylantirish */
+  margin-bottom: 24px; /* pastki bo'shliq */
+}
+.table {
+  width: 100%; /* kenglikni 100% ga o'rnatish */
+  border-collapse: collapse; /* chegara bo'shliqlarini olib tashlash */
+  table-layout: fixed; /* ustun kengliklarini tenglashtirish */
+}
+.table th,
+.table td {
+  padding: 12px;
+  border: 1px solid var(--border);
+  text-align: left; /* matnni chapga tekslash */
+  vertical-align: top; /* ustun balandligi yuqoridan boshlanadi */
+  color: var(--ink);
+}
+.table thead th {
+  background: #f7f7f7; /* sarlavhalar uchun fon */
+  color: var(--muted); /* sarlavhalar uchun rang */
+  font-weight: 600; /* sarlavhalar qalin */
+}
+.table caption {
+  text-align: left; /* sarlavha chapga tekslash */
+  margin-bottom: 8px; /* pastki bo'shliq */
+  margin-top: 8px;
+  font-weight: 600; /* sarlavha qalin */
+}
+
+/* ====== 6) Contact form ====== */
+
+.contact-form {
+  max-width: 640px;
+  display: grid;
+  gap: 12px;
+}
+
+.field {
+  width: fit-content;
+  display: grid;
+  gap: 6px;
+}
+
+.field input,
+.field textarea,
+.field select {
+  padding: 10px 12px;
+  border: 1px solid #a5e7eb;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible,
+.field select:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* ====== 7) Responsive ====== */
+@media (max-width: 768px) {
+  .card {
+    padding-bottom: 18px;
+  }
+  header {
+    font-size: 14px;
+  }
+  body {
+    background: #f7f7f7;
+  } /* biroz yengilroq */
+  .nav-list a {
+    display: block;
+    margin: 10px;
+  }
+  section {
+    padding: 40px 10px;
+  }
+}
+/* Contact section */
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.github:hover {
+  color: #24292e; /* GitHub rangiga o'zgartirish */
+  font-size: large; /* hoverda biroz kattaroq */
+}
+/*
+  .gmail{
+    display: grid;
+    width: fit-content;
+    margin: 5px;
+    text-align: start;
+    color: #a51010;
+  }
+  .github{
+    display: grid;
+    width: fit-content;
+    margin: 5px;
+    color: #000;
+  }
+  .tel{
+    display: grid;
+    width: fit-content;
+    margin: 5px
+  }
+    */
+
+footer {
+  background: #0b1b2b;
+  color: #fff;
+  padding: 24px 16px;
+  text-align: center;
+}
+.footer-links {
+  list-style: none;
+  margin: 0 0 8px 0;
+  padding: 0;
+  display: flex;
+  gap: var(--gap);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: #cfe3cf;
+  text-decoration: none;
+}
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  text-decoration: underline;
+}
+footer address {
+  font-style: normal;
+  margin: 8px 0;
+}
+.address a {
+  color: #d7477e;
+}
+footer small {
+  display: block;
+  opacity: 0.8;
+  margin: 8px 0;
+}
+.back-to-top {
+  color: #cfe3cf;
+  text-decoration: none;
+}
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  text-decoration: underline;
+}
+
+/* ===== Active nav link (pure CSS) ===== */
+/* G'oya: qaysi section target bo'lsa, body:has(#section:target) orqali nav'dagi mos a[href="#section"] ni bo'yaymiz */
+body:has(#about:target) .nav-list a[href="#about"],
+body:has(#projects:target) .nav-list a[href="#projects"],
+body:has(#skills:target) .nav-list a[href="#skills"],
+body:has(#contact:target) .nav-list a[href="#contact"] {
+  background: rgba(255, 255, 255, 0.1); /* active link uchun fon */
+  outline: 2px solid var(--brand); /* active link uchun outline */
+  outline-offset: 2px; /* outline va element orasidagi bo'shliq */
+}
+.nav-list a:focus-visible {
+  outline: 2px solid #fff; /* fokusda ko'rsatish */
+  outline-offset: 2px; /* outline va element orasidagi bo'shliq */
+}

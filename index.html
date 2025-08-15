@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- Robots meta tag: sahifa qidiruv tizimlarida ko'rsatilmasin -->
+    <meta
+      name="description"
+      content="Sindor&nbsp;Kholikberdiev's personal portfolio website showcasing projects, 
+  skills, and contact information."
+    />
+    <!-- Sahifa tavsifi -->
+    <!-- Charset va viewport: responsive dizayn uchun zarur -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sindor's Portfolio</title>
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <body>
+    <!--  Skip link: Tab bosilganda ko'rinadi, #main ga olib boradi -->
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <!--  BACK TO TOP  -->
+    <div id="top"></div>
+    <header>
+      <h1>Sindor's Portfolio</h1>
+
+      <!-- Nav ichida ul/li: semantik ro'yxat -->
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <!-- ichki anchorlar -->
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- main ga id beramiz: skip-link shu yerga sakraydi -->
+    <main id="main">
+      <!-- About section: anchor id = "about" -->
+      <section id="about">
+        <h2>About me</h2>
+        <!--flex container 2 ustun rasm + matn -->
+        <div class="about-wrap">
+          <!-- rasm ustuni -->
+          <img
+            src="img/1.jpg"
+            srcset="img/1.jpg 1x, img/1.jpg 2x"
+            width="280"
+            height="280"
+            alt="Sindor's portrait"
+            class="about-photo"
+          />
+
+          <!-- matn ustuni -->
+          <div class="about-text">
+            <p>
+              Hi, I'm Sindor Kholikberdiev, a web developer from Uzbekistan. I
+              create clean, responsive websites and applications.
+            </p>
+            <p>
+              I love coding, learning new technologies, and building projects
+              that make a difference.
+            </p>
+            <!-- CTA tugma: Contact bo'limiga olib boradi -->
+            <a class="btn" href="#contact">Contact me</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects section: anchor id = "projects" -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <p>A personal portfolio website to showcase my work and skills.</p>
+
+        <div class="projects-grid">
+          <!-- Har bir project — semantik jihatdan mustaqil bo'lak, shuning uchun <article> -->
+          <article class="card">
+            <img
+              src="img/img-project-portfolio/project-portfolio-640.png"
+              srcset="
+                img/img-project-portfolio/project-portfolio-320.png 320w,
+                img/img-project-portfolio/project-portfolio-480.png 480w,
+                img/img-project-portfolio/project-portfolio-640.png 640w
+              "
+              sizes="(max-width: 640px) 90vw, 320px"
+              width="640"
+              height="360"
+              loading="lazy"
+              decoding="async"
+              alt="Portfolio website preview"
+            />
+            <h3>Portfolio Website</h3>
+            <p>Clean, responsive personal site.</p>
+            <a class="btn" href="#">View</a>
+          </article>
+
+          <article class="card">
+            <img
+              src="img/img-project-landing/project-landing-640.png"
+              srcset="
+                img/img-project-landing/project-landing-320.png 320w,
+                img/img-project-landing/project-landing-480.png 480w,
+                img/img-project-landing/project-landing-640.png 640w
+              "
+              sizes="(max-width: 640px) 90vw, 320px"
+              width="640"
+              height="360"
+              loading="lazy"
+              decoding="async"
+              alt="Landing page preview"
+            />
+            <h3>Landing Page</h3>
+            <p>Fast, minimal marketing page.</p>
+            <a class="btn" href="#">View</a>
+          </article>
+
+          <article class="card">
+            <img
+              src="img/img-project-from-ui/project-form-ui-640.png"
+              srcset="
+                img/img-project-from-ui/project-form-ui-320.png 320w,
+                img/img-project-from-ui/project-form-ui-480.png 480w,
+                img/img-project-from-ui/project-form-ui-640.png 640w
+              "
+              sizes="(max-width: 640px) 90vw, 320px"
+              width="640"
+              height="360"
+              loading="lazy"
+              decoding="async"
+              alt="Form UI preview"
+            />
+            <h3>Form UI</h3>
+            <p>Accessible form components.</p>
+            <a class="btn" href="#">View</a>
+          </article>
+        </div>
+        <!--project table-->
+        <div class="table-wrap">
+          <table class="table">
+            <caption>
+              Project summary (loyihalar jadvali)
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Project</th>
+                <!--ustun sarlavhasi-->
+                <th scope="col">Stack</th>
+                <th scope="col">Year</th>
+                <th scope="col">Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Portfolio</th>
+                <td>HTML, CSS, JavaScript, React</td>
+                <td><time datetime="2025">2025</time></td>
+                <td>
+                  <a
+                    href="https://github.com/sindorkholikberdiev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Repo</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Skills section: anchor id = "skills" -->
+      <section id="skills">
+        <h2>Skills</h2>
+
+        <!-- Ro'yxat (ul/li) — semantics + accessibility uchun to'g'ri -->
+        <ul class="skills-list">
+          <li>Web Development</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Git</li>
+          <li>Responsive Design</li>
+        </ul>
+
+        <p>I'm always learning and improving my skills.</p>
+      </section>
+
+      <!-- Contact section: anchor id = "contact" -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <address>
+          <ul class="contact-list">
+            <li>
+              <a class="gmail" href="mailto:sindorkholikberdiev@gmail.com"
+                >sindorkholikberdiev@gmail.com</a
+              >
+            </li>
+            <li>
+              <a
+                class="github"
+                href="https://github.com/SindorKholikberdiev"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Github</a
+              >
+            </li>
+            <li>
+              <a class="tel" href="tel:+998909984090"> +998 90 998 40 90</a>
+            </li>
+            <li>
+              <a
+                class="telegram"
+                href="https://t.me/SindorKholikberdiev"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Telegram</a
+              >
+            </li>
+          </ul>
+        </address>
+      </section>
+      <!-- Contact form: id = "contact-form" -->
+      <section>
+        <h2>Contact Form</h2>
+        <!-- Form: action="#" — serverga yuborilmaydi, faqat ko'rinish uchun -->
+        <!-- novalidate: HTML5 validatsiyasini o'chiradi, JS bilan qo'shimcha validatsiya qilish mumkin -->
+        <!-- class="contact-form": CSS uchun maxsus sinf -->
+        <form class="contact-form" action="#" method="post" novalidate>
+          <!-- Form elementlari -->
+          <div class="field">
+            <label for="name">Name</label>
+            <!-- label -> screen reader va klik uchun -->
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              autocomplete="name"
+              placeholder="Your full name"
+            />
+          </div>
+          <!-- Email-->
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              autocomplete="email"
+              inputmode="email"
+              placeholder="your@example.com"
+            />
+          </div>
+          <!-- message (textarea)-->
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              rows="5"
+              required
+              placeholder="write your message"
+            ></textarea>
+          </div>
+          <!-- Radio buttons: contact preference -->
+          <fieldset>
+            <legend>Preferred contact</legend>
+            <label
+              ><input type="radio" name="contact" value="email" />Email</label
+            >
+            <label
+              ><input type="radio" name="contact" value="phone" />Phone</label
+            >
+          </fieldset>
+
+          <!-- Checkbox: terms and conditions -->
+          <fieldset>
+            <legend>Terms and conditions</legend>
+            <label>
+              <input type="checkbox" name="terms" required />
+              I agree to the terms and conditions
+            </label>
+          </fieldset>
+
+          <div class="field">
+            <label for="topic">Topic</label>
+            <select name="topic" id="topic" required>
+              <option value="" disabled selected>Select a topic</option>
+              <!--Placeholder-->
+              <option value="portfolio">Portfolio feedback</option>
+              <option value="hire">Hire me</option>
+              <option value="collab">Collaboration</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="stack">Tech stack (Multi-select)</label>
+            <select name="stack[]" id="stack" multiple size="4">
+              <option>HTML</option>
+              <option>CSS</option>
+              <option>JavaScript</option>
+              <option>React</option>
+            </select>
+          </div>
+          <!-- Submit tugmasi: type="submit" — yuborish uchun -->
+          <div class="field">
+            <button type="submit" class="btn">Send</button>
+          </div>
+          <!-- Form tugmasi: type="reset" — formani tozalash uchun -->
+          <div class="field">
+            <button type="reset" class="btn">Reset</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <!-- Footer navigation: ichki bo'limlarga O'SHA id'lar bilan (#projects/#skills/#contact) -->
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <!--  # bilan ichki anchor: id nomlari KICHIK harflarda bo'lgani kabi -->
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- address: sayt egasiga tegishli aloqa ma'lumoti -->
+      <address class="address">
+        <a href="mailto:sindorkholikberdiev@gmail.com"
+          >sindorkholikberdiev@gmail.com</a
+        >
+      </address>
+
+      <!-- Kichik huquqiy matn -->
+      <small id="copyright-info"
+        >© 2025 Sindor Kholikberdiev. All rights reserved.</small
+      >
+
+      <!-- Back to top: href ichida # BOR; tepada id="top" mavjud -->
+      <p><a class="back-to-top" href="#top">Back to top</a></p>
+    </footer>
+    <!-- JavaScript fayllari: JS kodlari uchun -->
+    <script src="main.js" defer></script>
+    <!-- defer: HTML yuklangandan keyin JS bajariladi -->
+  </body>
+</html>
