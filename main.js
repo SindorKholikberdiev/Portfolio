@@ -58,3 +58,5 @@ mySkills.forEach((skill) => {
   li.textContent = `${skill.name} ${skill.level}, ${skill.experience} years`; // li elementining matnini skill ma'lumotlari bilan to'ldirish
   skillsList.appendChild(li); // yangi li elementini ro'yxatga qo'shish, chunki appendChild() metodi yordamida yangi elementni mavjud elementning ichiga qo'shish mumkin
 });
+
+// practicing the git status command
