@@ -1,52 +1,30 @@
 import { useState } from "react";
 
-const ContactForm = () => {
+const ContactForm = ({ name, onChangeName }) => {
   // Barcha form maydonlari uchun state'lar
-  const [name, setName] = useState("");
+
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [contactPreference, setContactPreference] = useState("email"); // Boshlang'ich qiymat
-  const [agreedToTerms, setAgreedToTerms] = useState(false);
-  const [topic, setTopic] = useState(""); // select uchun boshlang'ich qiymat
-  const [stack, setStack] = useState([]); // multi-select uchun
-
-  // Formani boshlang'ich holatiga qaytarish funksiyasi
-  const handleReset = () => {
-    setName("");
-    setEmail("");
-    setMessage("");
-    setContactPreference("email");
-    setAgreedToTerms(false);
-    setTopic("");
-    setStack([]);
-  };
 
   //   form jo'natilganda ishlaydigan function
   const handleSubmit = (event) => {
     // Browserning standart harakatini ( sahifani yangilashni) to'xtatamiz
     event.preventDefault();
 
-    if (!agreedToTerms) {
-      alert("Please agree to the terms and conditions.");
-      return;
-    }
-
-    // Barcha state lardagi joriy value lardan bitta obyekt yaratamiz
+    // Barcha state lardagi joriy value lardan bitta array yaratamiz
     const submittedData = {
-      name,
+      name, // bu name parent componentdan kelayotga prop dan olinadi
       email,
       message,
-      contactPreference,
-      agreedToTerms,
-      topic,
-      stack,
     };
 
     // Yakuniy ma'lumotlarni consolga chiqaramiz (serverga jo'natish simulatsiyasi)
     console.log("form submitted data: ", submittedData);
 
     // Form send bo'lgandan after input larni clear qilish
-    handleReset();
+    onChangeName("");
+    setEmail("");
+    setMessage("");
   };
   return (
     // <!-- Contact form: id = "contact-form" -->
@@ -77,7 +55,7 @@ const ContactForm = () => {
             // a) State dan o'qish: input qiymati doim 'name' state ga teng
             value={name}
             //  b) State ga yozish: har bir o'zgarishda setName ni chaqirish
-            onChange={(event) => setName(event.target.value)}
+            onChange={(event) => onChangeName(event.target.value)}
           />
         </div>
         {/* <!-- Email--> */}
@@ -112,23 +90,11 @@ const ContactForm = () => {
         <fieldset>
           <legend>Preferred contact</legend>
           <label>
-            <input
-              type="radio"
-              name="contact"
-              value="email"
-              checked={contactPreference === "email"}
-              onChange={(e) => setContactPreference(e.target.value)}
-            />
+            <input type="radio" name="contact" value="email" />
             Email
           </label>
           <label>
-            <input
-              type="radio"
-              name="contact"
-              value="phone"
-              checked={contactPreference === "phone"}
-              onChange={(e) => setContactPreference(e.target.value)}
-            />
+            <input type="radio" name="contact" value="phone" />
             Phone
           </label>
         </fieldset>
@@ -137,26 +103,14 @@ const ContactForm = () => {
         <fieldset>
           <legend>Terms and conditions</legend>
           <label>
-            <input
-              type="checkbox"
-              name="terms"
-              required
-              checked={agreedToTerms}
-              onChange={(e) => setAgreedToTerms(e.target.checked)}
-            />
-            I agree to the terms and conditions
+            <input type="checkbox" name="terms" required />I agree to the terms
+            and conditions
           </label>
         </fieldset>
 
         <div className="field">
           <label htmlFor="topic">Topic</label>
-          <select
-            name="topic"
-            id="topic"
-            required
-            value={topic}
-            onChange={(e) => setTopic(e.target.value)}
-          >
+          <select name="topic" id="topic" required>
             <option value="" disabled>
               Select a topic
             </option>
@@ -169,16 +123,7 @@ const ContactForm = () => {
 
         <div className="field">
           <label htmlFor="stack">Tech stack (Multi-select)</label>
-          <select
-            name="stack[]"
-            id="stack"
-            multiple
-            size="4"
-            value={stack}
-            onChange={(e) =>
-              setStack(Array.from(e.target.selectedOptions, (o) => o.value))
-            }
-          >
+          <select name="stack[]" id="stack" multiple size="4">
             <option>HTML</option>
             <option>CSS</option>
             <option>JavaScript</option>
@@ -193,24 +138,16 @@ const ContactForm = () => {
         </div>
         {/* <!-- Form tugmasi: type="reset" — formani tozalash uchun --> */}
         <div className="field">
-          <button type="button" className="btn" onClick={handleReset}>
+          <button type="reset" className="btn">
             Reset
           </button>
         </div>
 
         {/* 4. Ishlayotganini tekshirish uchun state'ni real vaqtda ko'rsatib turamiz */}
         <p style={{ marginTop: "20px", borderRadius: "5px", padding: "10px" }}>
-          Hozirgi ism: <strong>{name}</strong>
-          <br />
           Hozirgi email: <strong>{email}</strong>
           <br />
           Hozirgi xabar: <strong>{message}</strong>
-          <br />
-          Aloqa usuli: <strong>{contactPreference}</strong>
-          <br />
-          Shartlarga rozilik: <strong>{agreedToTerms ? "Ha" : "Yo'q"}</strong>
-          <br />
-          Mavzu: <strong>{topic}</strong>
         </p>
       </form>
     </section>
