@@ -1,0 +1,75 @@
+header {
+  position: sticky;
+  top: 0;
+  background: var(--brand);
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+  /*  */
+}
+/* ===== Nav list (semantik ro'yxat) ===== */
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--gap);
+  justify-content: flex-end;
+}
+.navList a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  transition: background 0.2s ease;
+}
+.navList a:hover,
+.navList a:focus-visible {
+  background: rgba(255, 255, 255, 0.1); /* hover va fokusda fon o'zgarishi */
+}
+/* Skip link: ko'rinmaydigan, lekin tab bosilganda ko'rinadi */
+.skipLink {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  background: #fff;
+  color: #111827;
+  z-index: 1100; /* header ustida ko'rinadi */
+  transform: translateY(-200%); /* boshida ko'rinmaydi */
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+.skipLink:focus-visible {
+  transform: translateY(0); /* fokusda ko'rinadi */
+  outline: 2px solid var(--brand); /* fokusda outline */
+  outline-offset: 2px; /* outline va element orasidagi bo'shliq */
+}
+
+/* ====== 7) Responsive ====== */
+@media (max-width: 768px) {
+  header {
+    font-size: 14px;
+  }
+  body {
+    background: #f7f7f7;
+  } /* biroz yengilroq */
+  .nav-list a {
+    display: block;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-list {
+    justify-content: center;
+    gap: 15px;
+  }
+  .nav-list a {
+    margin: 5px;
+    padding: 9px 6px;
+  }
+}

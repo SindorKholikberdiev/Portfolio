@@ -1,9 +1,10 @@
-import Header from "./Header.jsx";
+import Header from "./components/Header/Header.jsx";
 import { useState } from "react";
-import About from "./About.jsx";
-import ProjectSection from "./ProjectSection.jsx";
+import About from "./components/About/About.jsx";
+import ProjectSection from "./components/ProjectsSection/ProjectSection.jsx";
+import SkillsSection from "./components/Skills/SkillsSection.jsx";
 import Counter from "./Counter.jsx";
-import ContactForm from "./ContactForm.jsx";
+import ContactForm from "./components/Contact/ContactForm.jsx";
 import ToDoList from "./ToDoList.jsx";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Header name={name} />
       <About />
       <ProjectSection />
+      <SkillsSection />
 
       {/* ContactForm componentiga name state ni props orqali uzatamiz */}
       <ContactForm name={name} onChangeName={setName} />

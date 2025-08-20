@@ -1,0 +1,65 @@
+/* Bu fayl faqat bitta ProjectCard qanday ko'rinishga ega bo'lishi uchun javob beradi */
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+
+  /* Ichki elementlarni vertikal boshqarish uchun */
+  display: flex;
+  flex-direction: column;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ===== MUAMMONING YECHIMI SHU YERDA ===== */
+/* Kartochka ichidagi rasm uchun stil */
+.card img {
+  width: 100%; /* Eng muhim qator! Rasm o'z konteyneridan chiqib ketmasligi uchun */
+  aspect-ratio: 16 / 9; /* Rasmning eni va bo'yi nisbati */
+  object-fit: cover; /* Rasm o'ziga ajratilgan joyni to'liq qoplashi uchun */
+  border-radius: 8px; /* Rasmning qirralarini yumaloqlash */
+  margin-bottom: 12px; /* Rasm va sarlavha orasida joy */
+}
+
+/* Kartochka ichidagi sarlavha */
+.card h3 {
+  margin: 8px 0;
+  color: var(--ink);
+  font-size: 1.2rem;
+}
+
+/* Kartochka ichidagi matn */
+.card p {
+  flex-grow: 1; /* Matn qismi barcha bo'sh joyni egallaydi */
+  margin: 8px 0 16px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Kartochka ichidagi tugma (link) */
+.btn {
+  display: block; /* To'liq kenglikni egallashi va padding to'g'ri ishlashi uchun */
+  margin-top: auto; /* Tugmani har doim kartochkaning pastiga yopishtiradi */
+
+  /* Dizayn (bu stillar global .btn'dan farq qilishi mumkin) */
+  padding: 8px 16px;
+  background: var(--brand);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--brand-600);
+}

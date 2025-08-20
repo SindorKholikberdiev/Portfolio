@@ -1,0 +1,18 @@
+h2 {
+  color: var(--brand);
+  margin-bottom: 25px;
+}
+
+/* ====== 5) Projects grid ====== */
+.projectsGrid {
+  max-width: 75vw;
+  margin: 0 auto;
+
+  display: grid;
+
+  /* avtomatik ustunlar */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+  gap: 25px;
+  align-items: stretch; /* kartalar balandligi teng bo'ladi */
+}

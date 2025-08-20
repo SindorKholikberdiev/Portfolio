@@ -1,10 +1,25 @@
 import { useState } from "react";
+import styles from "./ContactForm.module.css";
 
 const ContactForm = ({ name, onChangeName }) => {
   // Barcha form maydonlari uchun state'lar
 
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const [topic, setTopic] = useState("hire");
+  const [terms, setTerms] = useState(false);
+  const [preferredContact, setPreferredContact] = useState("");
+
+  // formani Reset qilish uchun function
+  const handleReset = () => {
+    setEmail("");
+    setMessage("");
+    setTopic("hire");
+    setTerms(false);
+    setPreferredContact("");
+    onChangeName("");
+  };
 
   //   form jo'natilganda ishlaydigan function
   const handleSubmit = (event) => {
@@ -16,15 +31,16 @@ const ContactForm = ({ name, onChangeName }) => {
       name, // bu name parent componentdan kelayotga prop dan olinadi
       email,
       message,
+      topic,
+      terms,
+      preferredContact,
     };
 
     // Yakuniy ma'lumotlarni consolga chiqaramiz (serverga jo'natish simulatsiyasi)
     console.log("form submitted data: ", submittedData);
 
     // Form send bo'lgandan after input larni clear qilish
-    onChangeName("");
-    setEmail("");
-    setMessage("");
+    handleReset();
   };
   return (
     // <!-- Contact form: id = "contact-form" -->
@@ -34,7 +50,8 @@ const ContactForm = ({ name, onChangeName }) => {
       {/* <!-- novalidate: HTML5 validatsiyasini o'chiradi, JS bilan qo'shimcha validatsiya qilish mumkin --> */}
       {/* <!-- class="contact-form": CSS uchun maxsus sinf --> */}
       <form
-        className="contact-form"
+        className={styles.contactForm}
+        id="contact-form"
         onSubmit={handleSubmit}
         action="#"
         method="post"
@@ -90,11 +107,23 @@ const ContactForm = ({ name, onChangeName }) => {
         <fieldset>
           <legend>Preferred contact</legend>
           <label>
-            <input type="radio" name="contact" value="email" />
+            <input
+              checked={preferredContact === "email"}
+              onChange={(e) => setPreferredContact(e.target.value)}
+              type="radio"
+              name="contact"
+              value="email"
+            />
             Email
           </label>
           <label>
-            <input type="radio" name="contact" value="phone" />
+            <input
+              checked={preferredContact === "phone"}
+              onChange={(e) => setPreferredContact(e.target.value)}
+              type="radio"
+              name="contact"
+              value="phone"
+            />
             Phone
           </label>
         </fieldset>
@@ -103,14 +132,26 @@ const ContactForm = ({ name, onChangeName }) => {
         <fieldset>
           <legend>Terms and conditions</legend>
           <label>
-            <input type="checkbox" name="terms" required />I agree to the terms
-            and conditions
+            <input
+              type="checkbox"
+              name="terms"
+              checked={terms}
+              onChange={(e) => setTerms(e.target.checked)}
+              required
+            />
+            I agree to the terms and conditions
           </label>
         </fieldset>
 
         <div className="field">
           <label htmlFor="topic">Topic</label>
-          <select name="topic" id="topic" required>
+          <select
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+            name="topic"
+            id="topic"
+            required
+          >
             <option value="" disabled>
               Select a topic
             </option>
@@ -121,15 +162,6 @@ const ContactForm = ({ name, onChangeName }) => {
           </select>
         </div>
 
-        <div className="field">
-          <label htmlFor="stack">Tech stack (Multi-select)</label>
-          <select name="stack[]" id="stack" multiple size="4">
-            <option>HTML</option>
-            <option>CSS</option>
-            <option>JavaScript</option>
-            <option>React</option>
-          </select>
-        </div>
         {/* <!-- Submit tugmasi: type="submit" — yuborish uchun --> */}
         <div className="field">
           <button type="submit" className="btn">
@@ -138,7 +170,7 @@ const ContactForm = ({ name, onChangeName }) => {
         </div>
         {/* <!-- Form tugmasi: type="reset" — formani tozalash uchun --> */}
         <div className="field">
-          <button type="reset" className="btn">
+          <button type="button" onClick={handleReset} className="btn">
             Reset
           </button>
         </div>

@@ -1,5 +1,7 @@
+import React from "react";
 import { useState, useEffect } from "react";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "./ProjectCard.jsx";
+import styles from "./ProjectSection.module.css";
 
 const ProjectSection = () => {
   const [projects, setProjects] = useState([]);
@@ -44,7 +46,7 @@ const ProjectSection = () => {
 
       {/*  Ma'lumotlar muvaffaqiyatli yuklanganda ularni render qilish */}
 
-      <div className="projects-grid">
+      <div className={styles.projectsGrid}>
         {!loading &&
           !error &&
           projects.map((project) => (

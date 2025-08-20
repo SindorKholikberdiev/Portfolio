@@ -1,10 +1,13 @@
+import React from "react";
+import styles from "./ProjectCard.module.css";
+
 const ProjectCard = ({ title, description, imageUrl }) => {
   return (
-    <article className="project-card">
+    <article className={styles.card}>
       <img src={imageUrl} alt={title} />
       <h3>{title}</h3>
       <p>{description}</p>
-      <a href="#" className="btn">
+      <a href="#" className={styles.btn}>
         View project
       </a>
     </article>

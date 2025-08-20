@@ -1,0 +1,80 @@
+/* ====== 4.1) About section ====== */
+.aboutWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+/* Rasm ustuni */
+.aboutPhoto {
+  flex: 0 0 280px; /* grow: 0, shrink: 0, base width: 280px */
+  width: 280px;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: block;
+}
+/* Matn ustuni (qolgan joyni oladi) */
+.aboutText {
+  flex: 1; /* qolgan kenglikni oladi */
+  min-width: 0; /* matn uzun bo'lsa ham kengaymasin */
+  max-width: 600px; /* maksimal kenglik */
+  color: var(--muted);
+  line-height: 1.7; /* qator balandligi, o'qilishi qulay */
+}
+/* Matn ichidagi paragraflar uchun tartibli bo'shliq */
+.aboutText p {
+  margin: 0 0 12px; /* pastdan 12px */
+}
+/* CTA tugma ustida bir oz bo'sh joy */
+.aboutText .btn {
+  margin-top: 6px;
+  display: inline-block; /* inline bo'lib, blok kabi ishlaydi */
+}
+/* Mobile: ustunlarni bir qatorga joylash */
+@media (max-width: 768px) {
+  .aboutWrap {
+    flex-direction: column;
+    align-items: flex-start; /* chapga tekslash */
+    gap: 24px; /* ustunlar orasidagi bo'shliq */
+  }
+  .aboutPhoto {
+    width: 100%;
+    max-width: 380px;
+  }
+  .aboutPext {
+    text-align: left; /* matnni chapga tekslash */
+    max-width: 100%; /* maksimal kenglikni 100% ga o'rnatish */
+  }
+}
+
+/* ====== 7) Responsive ====== */
+@media (max-width: 768px) {
+  .card {
+    padding-bottom: 18px;
+  }
+  header {
+    font-size: 14px;
+  }
+  body {
+    background: #f7f7f7;
+  } /* biroz yengilroq */
+  .nav-list a {
+    display: block;
+    margin: 10px;
+  }
+  section {
+    padding: 40px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-list {
+    justify-content: center;
+    gap: 20px;
+  }
+  .nav-list a {
+    margin: 5px;
+    padding: 9px 6px;
+  }
+}
