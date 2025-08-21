@@ -27,7 +27,7 @@ const About = () => {
             make a difference.
           </p>
           {/* <!-- CTA tugma: Contact bo'limiga olib boradi --> */}
-          <a className={styles.btn} href="#contact-form">
+          <a className="btn" href="#contact-info">
             Contact me
           </a>
         </div>

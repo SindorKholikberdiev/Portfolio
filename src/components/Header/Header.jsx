@@ -14,7 +14,7 @@ const Header = ({ name }) => {
 
       {name && <h2> Welcome! {name}</h2>}
 
-      <nav aria-label="Primary">
+      <nav aria-label="Primary" className={styles.navWrapper}>
         <ul className={styles.navList}>
           <li>
             <a href="#about">About</a>
@@ -26,7 +26,7 @@ const Header = ({ name }) => {
             <a href="#skills">Skills</a>
           </li>
           <li>
-            <a href="#contact-form">Contact</a>
+            <a href="#contact-info">Contact</a>
           </li>
         </ul>
       </nav>

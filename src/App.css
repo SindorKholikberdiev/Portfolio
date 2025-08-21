@@ -1,41 +1,74 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Add these styles to your main CSS file (e.g., App.css or index.css) */
+/* Bu stillarni asosiy CSS faylingizga qo'shing */
+
+/* This is the main flex container that wraps both components. */
+.contactSection {
+  /* This is the most important property. It turns the section into a flex container. */
+  /* Bu eng muhim xususiyat. U section'ni flex konteynerga aylantiradi. */
+  display: flex;
+
+  /* This allows the items to stack vertically on small screens. */
+  /* Bu kichik ekranlarda elementlarning vertikal joylashishiga imkon beradi. */
+  flex-wrap: wrap;
+
+  /* This creates a visual gap between the two components. */
+  /* Bu ikkala komponent orasida vizual bo'shliq yaratadi. */
+  gap: 2rem; /* approx. 32px */
+
+  /* This aligns the components to the top of the container. */
+  /* Bu komponentlarni konteynerning yuqori qismiga tekislaydi. */
+  align-items: flex-start;
+
+  /* Optional: Adds some space around the section and centers it. */
+  /* Qo'shimcha: section atrofida bo'shliq qo'shadi va uni markazlashtiradi. */
+  margin: 2rem auto;
+  padding: 0 1rem;
+  max-width: 1200px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* --- A clever trick to style the columns without adding extra classes --- */
+/* --- Ustunlarni qo'shimcha klasslarsiz stillash uchun ayyor usul --- */
+
+/* This selector targets any direct child (*) of .contactSection */
+/* Bu selektor .contactSection'ning har qanday bevosita farzandini (*) tanlaydi */
+.contactSection > * {
+  min-width: 320px; /* Ensures children don't get too narrow before wrapping. */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* This targets the FIRST direct child (our ContactInfo component) */
+/* Bu BIRINCHI bevosita farzandni tanlaydi (bizning ContactInfo komponentimiz) */
+.contactSection > *:first-child {
+  flex: 1; /* This child will take up 1 part of the available space. */
+}
+
+/* This targets the LAST direct child (our ContactForm component) */
+/* Bu OXIRGI bevosita farzandni tanlaydi (bizning ContactForm komponentimiz) */
+.contactSection > *:last-child {
+  flex: 1.5; /* This child will take up 1.5 parts, making it wider. */
+}
+
+/* --- Responsive Styles for Small Screens --- */
+/* --- Kichik ekranlar uchun moslashuvchan stillar --- */
+
+/* This media query will apply styles only when the screen width is 480px or less. */
+/* Bu media so'rov faqat ekran kengligi 480px yoki undan kichik bo'lganda stillarni qo'llaydi. */
+@media (max-width: 480px) {
+  .contactSection {
+    /* Reduce the gap between the stacked components on very small screens. */
+    /* Juda kichik ekranlarda vertikal joylashgan komponentlar orasidagi bo'shliqni kamaytiramiz. */
+    gap: 1.5rem;
+
+    /* Reduce the vertical margin to save space. */
+    /* Joyni tejash uchun vertikal margin'ni kamaytiramiz. */
+    margin: 1.5rem auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  /* On small screens, we want both columns to take up the full width. */
+  /* Kichik ekranlarda biz ikkala ustunning ham to'liq kenglikni egallashini xohlaymiz. */
+  .contactSection > *:first-child,
+  .contactSection > *:last-child {
+    /* This tells the item to grow, shrink, and have a base width of 100%. */
+    /* Bu elementga kengayish, qisqarish va 100% asosiy kenglikka ega bo'lishni aytadi. */
+    flex: 1 1 100%;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

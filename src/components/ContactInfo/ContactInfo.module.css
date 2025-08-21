@@ -1,0 +1,61 @@
+/* Styles for the main container card of the ContactInfo component. */
+.contactInfoCard {
+  background: #f8f9fa; /* A light grey background color. */
+  padding: 2rem; /* Adds 2rem of space inside the container on all sides. */
+  border-radius: 8px; /* Rounds the corners of the card. */
+  border: 1px solid #dee2e6; /* A light border for definition. */
+  min-width: 300px; /* Ensures the card doesn't get too narrow on smaller screens. */
+  flex: 1; /* In a flex layout, this allows the card to grow and shrink. */
+}
+
+/* Styles for the main heading (h3) inside the card. */
+.contactInfoCard h3 {
+  margin-top: 0; /* Removes the default top margin from the heading. */
+  color: #007bff; /* A primary blue color for the heading. */
+  font-size: 1.5rem; /* Sets the font size of the heading. */
+}
+
+/* Styles for the paragraph text inside the card. */
+.contactInfoCard p {
+  line-height: 1.6; /* Increases the space between lines of text for better readability. */
+  color: #555; /* A dark grey color for the text, softer than pure black. */
+  margin-bottom: 2rem; /* Adds space below the paragraph. */
+}
+
+/* Styles for the unordered list (ul) that holds the contact items. */
+.contactList {
+  list-style: none; /* Removes the default bullet points from the list. */
+  padding: 0; /* Removes the default left padding. */
+  margin: 0; /* Removes the default margin. */
+  display: grid; /* Uses CSS Grid to lay out the list items. */
+  gap: 1.2rem; /* Creates a 1.2rem gap between each grid item (each li). */
+}
+
+/* Styles for each individual list item (li). */
+.contactItem {
+  display: flex; /* Uses Flexbox to align the icon and the text horizontally. */
+  align-items: center; /* Vertically aligns the icon and text to the center. */
+  gap: 1rem; /* Creates a 1rem gap between the icon and the text. */
+}
+
+/* Styles for the SVG icon, which is now an <img> tag. */
+.icon {
+  /* We no longer set 'color' here because <img> SVGs are not affected by CSS color. */
+  /* To change the color, you must edit the SVG file itself (the 'fill' or 'stroke' attribute). */
+  width: 24px; /* Set a specific width for consistency. */
+  height: 24px; /* Set a specific height for consistency. */
+}
+
+/* Styles for the anchor (a) tags. */
+.contactItem a {
+  font-size: 1rem; /* Sets the font size for the link text. */
+  color: #333; /* A dark color for the link text. */
+  text-decoration: none; /* Removes the default underline from links. */
+  transition: color 0.2s ease-in-out; /* Adds a smooth color change transition on hover. */
+}
+
+/* Styles for the anchor tags when the mouse is hovering over them. */
+.contactItem a:hover {
+  color: #007bff; /* Changes the link color to blue on hover. */
+  text-decoration: underline; /* Adds an underline on hover for better user feedback. */
+}

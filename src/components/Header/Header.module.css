@@ -1,22 +1,42 @@
-header {
+/* Header.module.css */
+
+.header {
+  /* 1. Ota-ona 'positioning context' bo'lishi kerak */
   position: sticky;
+  display: flex;
+  align-items: center; /* Elementlarni vertikal markazga keltirish uchun */
+  padding: 8px 24px;
   top: 0;
   background: var(--brand);
   color: #fff;
-  padding: 15px;
-  text-align: center;
   z-index: 1000;
   box-shadow: var(--shadow-sm);
-  /*  */
 }
-/* ===== Nav list (semantik ro'yxat) ===== */
+
+.header h1 {
+  /* 2. Sarlavhani normal oqimdan olib, aniq markazga joylaymiz */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Bu uni aniq markazga qo'yadigan klassik trick */
+
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* <nav> tegi uchun yangi klass */
+.navWrapper {
+  margin-left: auto;
+}
+
 .navList {
   list-style: none;
-  margin: 0;
   padding: 0;
   display: flex;
   gap: var(--gap);
-  justify-content: flex-end;
 }
 .navList a {
   color: #fff;
@@ -25,10 +45,36 @@ header {
   border-radius: var(--radius);
   transition: background 0.2s ease;
 }
+
 .navList a:hover,
 .navList a:focus-visible {
-  background: rgba(255, 255, 255, 0.1); /* hover va fokusda fon o'zgarishi */
+  background: rgba(255, 255, 255, 0.1);
 }
+
+/* Responsive Breakpoint (768px dan kichik ekranlar uchun) */
+@media (max-width: 768px) {
+  .navWrapper {
+    margin-left: 0; /* Responsive holatda auto margin'ni bekor qilamiz */
+  }
+
+  .header {
+    /* position: relative o'zgarmaydi */
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .header h1 {
+    /* Kichik ekranda sarlavhani normal holatiga qaytaramiz */
+    position: static; /* 'absolute' ni bekor qilamiz */
+    transform: none; /* 'transform' ni bekor qilamiz */
+  }
+
+  .navList {
+    justify-content: center;
+  }
+}
+
 /* Skip link: ko'rinmaydigan, lekin tab bosilganda ko'rinadi */
 .skipLink {
   position: absolute;
@@ -47,29 +93,4 @@ header {
   transform: translateY(0); /* fokusda ko'rinadi */
   outline: 2px solid var(--brand); /* fokusda outline */
   outline-offset: 2px; /* outline va element orasidagi bo'shliq */
-}
-
-/* ====== 7) Responsive ====== */
-@media (max-width: 768px) {
-  header {
-    font-size: 14px;
-  }
-  body {
-    background: #f7f7f7;
-  } /* biroz yengilroq */
-  .nav-list a {
-    display: block;
-    margin: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-list {
-    justify-content: center;
-    gap: 15px;
-  }
-  .nav-list a {
-    margin: 5px;
-    padding: 9px 6px;
-  }
 }

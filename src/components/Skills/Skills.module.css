@@ -1,0 +1,28 @@
+/* ====== 4.2) Skills list ====== */
+.skillsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  /*
+      display: flex;
+      gap: var(--gap);
+      */
+}
+
+.skillsList li {
+  display: inline-block; /* inline blok, qator bo'lib joylash */
+  margin: 8px; /* har bir skill orasida bo'shliq */
+  font-size: 14px; /* matn o'lchami */
+  font-weight: 500; /* matn qalinligi */
+  text-align: center;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  color: #fff;
+  padding: 6px 12px;
+  line-height: 1.4;
+  box-shadow: var(--shadow-sm);
+  border-radius: 9999px; /* to'liq aylana */
+  white-space: nowrap; /* matnni bir qatorga joylash */
+  min-width: 120px; /* minimal kenglik */
+}

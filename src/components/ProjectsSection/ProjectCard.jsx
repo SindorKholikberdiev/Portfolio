@@ -7,7 +7,7 @@ const ProjectCard = ({ title, description, imageUrl }) => {
       <img src={imageUrl} alt={title} />
       <h3>{title}</h3>
       <p>{description}</p>
-      <a href="#" className={styles.btn}>
+      <a href="#" className="btn">
         View project
       </a>
     </article>
