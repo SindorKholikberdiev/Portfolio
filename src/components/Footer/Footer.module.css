@@ -1,44 +1,74 @@
-/* footer */
-footer {
-  background: #0b1b2b;
-  color: #fff;
-  padding: 24px 16px;
-  text-align: center;
+/* Main container for the footer. */
+.footerContainer {
+  background-color: #1a202c; /* A very dark, almost black background. */
+  color: #a0aec0; /* A light grey color for the text, which is easy on the eyes. */
+  padding: 2rem 1rem; /* Vertical and horizontal padding. */
+  text-align: center; /* Centers all text content by default. */
+  margin-top: 4rem; /* Adds space between the footer and the content above it. */
+  border-top: 4px solid #007bff; /* A blue top border to add a splash of color. */
 }
+
+/* Styles for the list of navigation links (Projects, Skills, Contact). */
 .footerLinks {
-  list-style: none;
-  margin: 0 0 8px 0;
+  list-style: none; /* Removes the default bullet points. */
   padding: 0;
-  display: flex;
-  gap: var(--gap);
-  justify-content: center;
-  flex-wrap: wrap;
+  margin: 0 0 1.5rem 0; /* Adds some space below the links. */
+  display: flex; /* Aligns the links in a row. */
+  justify-content: center; /* Centers the links horizontally. */
+  gap: 1.5rem; /* Creates space between each link. */
+  flex-wrap: wrap; /* Allows links to stack on very small screens. */
 }
+
+/* Styles for the individual links in the footer. */
 .footerLinks a {
-  color: #cfe3cf;
-  text-decoration: none;
+  color: #cbd5e0; /* A slightly brighter grey for links. */
+  text-decoration: none; /* Removes the underline. */
+  font-weight: 500;
+  transition: color 0.2s ease-in-out; /* Smooth color transition on hover. */
 }
-.footerLinks a:hover,
-.footerLinks a:focus-visible {
-  text-decoration: underline;
+
+/* Hover effect for the links. */
+.footerLinks a:hover {
+  color: #ffffff; /* Makes the link white on hover. */
+  text-decoration: underline; /* Adds an underline on hover. */
 }
-footer address {
-  font-style: normal;
-  margin: 8px 0;
+
+/* Styles for the address/email link. */
+.address {
+  margin-bottom: 1.5rem;
+  font-style: normal; /* Removes the default italic style from the <address> tag. */
 }
+
 .address a {
-  color: #d7477e;
-}
-footer small {
-  display: block;
-  opacity: 0.8;
-  margin: 8px 0;
-}
-.backToTop {
-  color: #cfe3cf;
+  color: #cbd5e0;
   text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
-.backToTop:hover,
-.backToTop:focus-visible {
-  text-decoration: underline;
+
+.address a:hover {
+  color: #ffffff;
+}
+
+/* Styles for the copyright text. */
+.copyright {
+  display: block; /* Makes the <small> tag take up its own line. */
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem; /* Makes the text slightly smaller. */
+}
+
+/* A wrapper for the "Back to top" link for better spacing control. */
+.backToTopWrapper {
+  margin-top: 1rem;
+}
+
+/* Styles for the "Back to top" link. */
+.backToTop {
+  color: #007bff; /* Uses the primary blue color to make it stand out. */
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.backToTop:hover {
+  opacity: 0.8; /* Slightly fades the link on hover for a nice effect. */
 }
