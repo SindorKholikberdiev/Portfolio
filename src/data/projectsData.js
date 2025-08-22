@@ -14,7 +14,7 @@ export const projectsData = [
       "A responsive portfolio website built with React to showcase my skills and projects. Features a modern UI and clean code.",
     imageUrl: portfolioImage,
     projectLink: "#", // Add the real link to the project here
-    githubLink: "https://github.com/your-repo/portfolio", // Add the real GitHub link
+    githubLink: "https://github.com/SindorKholikberdiev/Portfolio", // Add the real GitHub link
   },
   {
     id: 2,
@@ -22,8 +22,10 @@ export const projectsData = [
     description:
       "A simple and fun application that fetches random quotes from an API and displays them. A great exercise in handling API requests.",
     imageUrl: quteGeneratorImage,
-    projectLink: "#",
-    githubLink: "https://github.com/your-repo/quote-generator",
+    projectLink:
+      "https://sindorkholikberdiev.github.io/Project-Simple-quote-generator/",
+    githubLink:
+      "https://github.com/SindorKholikberdiev/Project-Simple-quote-generator",
   },
   {
     id: 3,
@@ -32,7 +34,7 @@ export const projectsData = [
       "A front-end for an e-commerce platform, demonstrating product listing, filtering, and a shopping cart using React state management.",
     imageUrl: eCommerceImage,
     projectLink: "#",
-    githubLink: "https://github.com/your-repo/ecommerce",
+    githubLink: "#1",
   },
 
   // You can add more projects here.

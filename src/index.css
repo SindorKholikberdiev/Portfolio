@@ -72,6 +72,14 @@ section h2 {
   background: var(--brand-600); /* Hover va fokusda rangi o'zgaradi */
 }
 
+.btn-secondary {
+  background: #565f66; /* Masalan, kulrang */
+}
+
+.btn-secondary:hover {
+  background: #333a3e; /* Hover bo'lganda biroz to'qroq */
+}
+
 /* ====== 7) Responsive ====== */
 @media (max-width: 768px) {
   .card {

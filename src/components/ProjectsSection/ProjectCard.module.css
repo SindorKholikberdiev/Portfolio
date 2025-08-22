@@ -37,8 +37,23 @@
 
 /* Kartochka ichidagi matn */
 .card p {
-  flex-grow: 1; /* Matn qismi barcha bo'sh joyni egallaydi */
+  /* flex-grow: 1; Matn qismi barcha bo'sh joyni egallaydi */
   margin: 8px 0 16px;
   color: var(--muted);
   line-height: 1.6;
+}
+
+/* ProjectCard.module.css */
+
+.buttonGroup {
+  /* 1. Konteynerni flex qilamiz */
+  display: flex;
+  justify-content: space-between;
+
+  /* 3. Ular orasida masofa qoldiramiz */
+  gap: 15px;
+  /* 4. Tugmalarni chapga tekislaymiz (ixtiyoriy) */
+
+  /* Bu esa butun guruhni kartaning pastiga yopishtirib turadi */
+  margin-top: auto;
 }
