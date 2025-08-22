@@ -1,5 +1,18 @@
-/* Add these styles to your main CSS file (e.g., App.css or index.css) */
-/* Bu stillarni asosiy CSS faylingizga qo'shing */
+#root {
+  min-height: 100vh; /* Make sure the root element is also full height. */
+  display: flex; /* This helps the .App div inside it to correctly take up the height. */
+}
+
+/* This is the main container for our entire application. */
+/* Bu bizning butun ilovamiz uchun asosiy konteyner. */
+.App {
+  /* --- STEP 1: Make it a full-height vertical flex container --- */
+  /* --- 1-QADAM: Uni to'liq balandlikdagi vertikal flex konteynerga aylantirish --- */
+  display: flex;
+  flex-direction: column; /* Stacks children vertically (Header, main, Footer). */
+  min-height: 100vh; /* Ensures the container is at least as tall as the viewport. */
+  width: 100%; /* Ensures it takes the full width. */
+}
 
 /* This is the main flex container that wraps both components. */
 .contactSection {
@@ -45,6 +58,17 @@
 /* Bu OXIRGI bevosita farzandni tanlaydi (bizning ContactForm komponentimiz) */
 .contactSection > *:last-child {
   flex: 1.5; /* This child will take up 1.5 parts, making it wider. */
+}
+
+main {
+  /* --- STEP 2: Let the main content grow --- */
+  /* --- 2-QADAM: Asosiy kontentga o'sishga ruxsat berish --- */
+
+  /* This is the magic property! It tells the main element to take up all available */
+  /* empty space, pushing the footer down. */
+  /* Bu sehrli xususiyat! U main elementiga barcha mavjud bo'sh joyni egallashni */
+  /* aytadi va futerni pastga itaradi. */
+  flex-grow: 1;
 }
 
 /* --- Responsive Styles for Small Screens --- */

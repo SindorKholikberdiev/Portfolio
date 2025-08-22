@@ -1,42 +1,52 @@
 /* Main container for the footer. */
 .footerContainer {
-  background-color: #1a202c; /* A very dark, almost black background. */
-  color: #a0aec0; /* A light grey color for the text, which is easy on the eyes. */
-  padding: 2rem 1rem; /* Vertical and horizontal padding. */
-  text-align: center; /* Centers all text content by default. */
-  margin-top: 4rem; /* Adds space between the footer and the content above it. */
-  border-top: 4px solid #007bff; /* A blue top border to add a splash of color. */
+  background-color: #1a202c;
+  color: #a0aec0;
+
+  /* --- SLIMMER PADDING --- */
+  /* --- INGICHKAROQ PADDING --- */
+  /* We reduce the vertical padding to make the footer thinner. */
+  /* Futerni ingichkaroq qilish uchun vertikal padding'ni kamaytiramiz. */
+  padding: 1rem 1rem; /* Was 2rem 1rem */
+
+  text-align: center;
+  margin-top: auto; /* This works with flexbox to push it to the bottom. */
+  border-top: 3px solid #007bff; /* Slightly thinner border. */
 }
 
-/* Styles for the list of navigation links (Projects, Skills, Contact). */
+/* Styles for the list of navigation links. */
 .footerLinks {
-  list-style: none; /* Removes the default bullet points. */
+  list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem 0; /* Adds some space below the links. */
-  display: flex; /* Aligns the links in a row. */
-  justify-content: center; /* Centers the links horizontally. */
-  gap: 1.5rem; /* Creates space between each link. */
-  flex-wrap: wrap; /* Allows links to stack on very small screens. */
+
+  /* --- SLIMMER MARGIN --- */
+  /* --- INGICHKAROQ MARGIN --- */
+  /* Reduce the space below the links. */
+  /* Havolalar ostidagi bo'shliqni kamaytiramiz. */
+  margin: 0 0 1rem 0; /* Was 1.5rem */
+
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-/* Styles for the individual links in the footer. */
 .footerLinks a {
-  color: #cbd5e0; /* A slightly brighter grey for links. */
-  text-decoration: none; /* Removes the underline. */
+  color: #cbd5e0;
+  text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease-in-out; /* Smooth color transition on hover. */
+  transition: color 0.2s ease-in-out;
 }
 
-/* Hover effect for the links. */
 .footerLinks a:hover {
-  color: #ffffff; /* Makes the link white on hover. */
-  text-decoration: underline; /* Adds an underline on hover. */
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 /* Styles for the address/email link. */
 .address {
-  margin-bottom: 1.5rem;
-  font-style: normal; /* Removes the default italic style from the <address> tag. */
+  margin-bottom: 1rem; /* Was 1.5rem */
+  font-style: normal;
 }
 
 .address a {
@@ -51,24 +61,23 @@
 
 /* Styles for the copyright text. */
 .copyright {
-  display: block; /* Makes the <small> tag take up its own line. */
-  margin-bottom: 1.5rem;
-  font-size: 0.875rem; /* Makes the text slightly smaller. */
+  display: block;
+  margin-bottom: 1rem; /* Was 1.5rem */
+  font-size: 0.875rem;
 }
 
-/* A wrapper for the "Back to top" link for better spacing control. */
+/* A wrapper for the "Back to top" link. */
 .backToTopWrapper {
-  margin-top: 1rem;
+  margin-top: 0.5rem; /* Was 1rem */
 }
 
-/* Styles for the "Back to top" link. */
 .backToTop {
-  color: #007bff; /* Uses the primary blue color to make it stand out. */
+  color: #007bff;
   text-decoration: none;
   font-weight: bold;
   transition: opacity 0.2s ease-in-out;
 }
 
 .backToTop:hover {
-  opacity: 0.8; /* Slightly fades the link on hover for a nice effect. */
+  opacity: 0.8;
 }

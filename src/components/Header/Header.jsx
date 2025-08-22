@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
+import { Link } from "react-router-dom";
 
 const Header = ({ name }) => {
   return (
@@ -17,16 +18,19 @@ const Header = ({ name }) => {
       <nav aria-label="Primary" className={styles.navWrapper}>
         <ul className={styles.navList}>
           <li>
-            <a href="#about">About</a>
+            <Link to="/about">About</Link>
+          </li>{" "}
+          {/* O'ZGARDI */}
+          <li>
+            <Link to="/projects">Projects</Link>
+          </li>{" "}
+          {/* O'ZGARDI */}
+          {/* Hozircha qolganlarini ham o'zgartirib qo'y */}
+          <li>
+            <Link to="/skills">Skills</Link>
           </li>
           <li>
-            <a href="#projects">Projects</a>
-          </li>
-          <li>
-            <a href="#skills">Skills</a>
-          </li>
-          <li>
-            <a href="#contact-info">Contact</a>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </nav>

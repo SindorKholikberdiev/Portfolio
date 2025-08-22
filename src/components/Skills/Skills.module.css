@@ -1,28 +1,76 @@
-/* ====== 4.2) Skills list ====== */
-.skillsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex-wrap: wrap;
-  /*
-      display: flex;
-      gap: var(--gap);
-      */
+/* Fayl: src/components/Skills/Skills.module.css */
+
+/* Main container for the entire "Skills" section. */
+/* Butun "Skills" bo'limi uchun asosiy konteyner. */
+.skillsSection {
+  padding: 4rem 1rem;
+  text-align: center; /* Center the h2 title. */
 }
 
-.skillsList li {
-  display: inline-block; /* inline blok, qator bo'lib joylash */
-  margin: 8px; /* har bir skill orasida bo'shliq */
-  font-size: 14px; /* matn o'lchami */
-  font-weight: 500; /* matn qalinligi */
-  text-align: center;
-  background: var(--muted);
-  border: 1px solid var(--border);
-  color: #fff;
-  padding: 6px 12px;
-  line-height: 1.4;
-  box-shadow: var(--shadow-sm);
-  border-radius: 9999px; /* to'liq aylana */
-  white-space: nowrap; /* matnni bir qatorga joylash */
-  min-width: 120px; /* minimal kenglik */
+.skillsSection h2 {
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  color: #1a202c;
+}
+
+/* This is our main layout container for the skills. */
+/* Bu bizning mahoratlar uchun asosiy joylashuv konteynerimiz. */
+.skillsGrid {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto; /* Center the grid container itself. */
+  max-width: 900px; /* Limit the max width for better readability on large screens. */
+
+  /* --- This is the key for the new layout --- */
+  /* --- Bu yangi joylashuv uchun kalit --- */
+  display: flex; /* Use Flexbox for alignment. */
+  justify-content: center; /* Center the items horizontally. */
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens. */
+  gap: 1rem; /* Create a consistent space between all items. */
+}
+
+/* Styles for each individual skill item (the <li> tag). */
+/* Har bir mahorat elementi (<li> tegi) uchun stillar. */
+.skillItem {
+  background-color: #ffffff; /* White background. */
+  border: 1px solid #e2e8f0; /* Light grey border. */
+  color: #4a5568; /* Dark grey text color. */
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px; /* Slightly rounded corners. */
+  font-size: 1rem;
+  font-weight: 500;
+
+  /* Align the icon and text inside the item. */
+  /* Element ichidagi ikonka va matnni tekislash. */
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  /* Add a smooth transition for the hover effect. */
+  /* Hover effekti uchun silliq o'tish qo'shamiz. */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* The hover effect! */
+/* Hover effekti! */
+.skillItem:hover {
+  /* Lift the item up slightly. */
+  /* Elementni biroz yuqoriga ko'taradi. */
+  transform: translateY(-5px);
+
+  /* Add a subtle blue shadow to make it pop. */
+  /* Uni ajratib ko'rsatish uchun yengil ko'k soya qo'shadi. */
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.1);
+
+  /* You can also change the text color on hover if you like. */
+  /* Agar xohlasangiz, hoverda matn rangini ham o'zgartirishingiz mumkin. */
+  color: #007bff;
+}
+
+/* Styles for the icon container (the <span> tag). */
+/* Ikonka konteyneri (<span> tegi) uchun stillar. */
+.skillIcon {
+  font-size: 1.5rem; /* Make the icon a bit larger than the text. */
+  display: flex; /* Helps with perfect vertical alignment. */
+  align-items: center;
 }

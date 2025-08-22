@@ -1,6 +1,7 @@
 // Import React and the CSS module for the footer.
 import React from "react";
 import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -11,13 +12,10 @@ const Footer = () => {
         {/* In JSX, 'class' must be changed to 'className'. */}
         <ul className={styles.footerLinks}>
           <li>
-            <a href="#projects">Projects</a>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <a href="#skills">Skills</a>
-          </li>
-          <li>
-            <a href="#contact-info">Contact</a>
+            <Link to="/projects">Projects</Link>
           </li>
         </ul>
       </nav>

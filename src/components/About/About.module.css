@@ -1,80 +1,85 @@
-/* ====== 4.1) About section ====== */
-.aboutWrap {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 24px;
+/* Main container for the entire "About" section. */
+.aboutSection {
+  margin-top: 4vh;
+  padding: 4rem 1rem; /* Adds significant vertical space and some horizontal space. */
+  background-color: #f8f9fa; /* A very light grey background to separate it from other sections. */
 }
-/* Rasm ustuni */
-.aboutPhoto {
-  flex: 0 0 280px; /* grow: 0, shrink: 0, base width: 280px */
-  width: 280px;
-  height: auto;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  display: block;
+
+/* A wrapper to center the content and set a max-width. */
+.aboutContainer {
+  max-width: 1100px; /* Limits the width on large screens for better readability. */
+  margin: auto auto; /* Centers the container horizontally. */
+
+  /* --- This creates the two-column layout --- */
+  display: flex; /* Aligns children (image and text wrappers) in a row. */
+  align-items: center; /* Vertically aligns the content in the middle. */
+  gap: 3rem; /* Creates a nice space between the image and the text. */
 }
-/* Matn ustuni (qolgan joyni oladi) */
-.aboutText {
-  flex: 1; /* qolgan kenglikni oladi */
-  min-width: 0; /* matn uzun bo'lsa ham kengaymasin */
-  max-width: 600px; /* maksimal kenglik */
-  color: var(--muted);
-  line-height: 1.7; /* qator balandligi, o'qilishi qulay */
+
+/* Wrapper for the profile image. */
+.imageWrapper {
+  flex: 1; /* Takes up 1 part of the available space. */
+  max-width: 350px; /* Prevents the image from becoming too large. */
 }
-/* Matn ichidagi paragraflar uchun tartibli bo'shliq */
-.aboutText p {
-  margin: 0 0 12px; /* pastdan 12px */
+
+/* The profile image itself. */
+.profileImage {
+  width: 100%; /* Makes the image fill its container. */
+  height: auto; /* Maintains the aspect ratio. */
+  border-radius: 50%; /* Makes the image a perfect circle. */
+  border: 5px solid #ffffff; /* Adds a white border. */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for a "lifting" effect. */
 }
-/* CTA tugma ustida bir oz bo'sh joy */
-.aboutText .btn {
-  margin-top: 6px;
-  display: inline-block; /* inline bo'lib, blok kabi ishlaydi */
+
+/* Wrapper for the text content. */
+.textWrapper {
+  flex: 1.5; /* Takes up 1.5 parts of the space, giving text more room than the image. */
 }
-/* Mobile: ustunlarni bir qatorga joylash */
+
+/* The "About Me" title. */
+.title {
+  font-size: 2.5rem; /* Large font size for the heading. */
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #1a202c; /* Dark text color for high contrast. */
+}
+
+/* Styles for the paragraphs. */
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.7; /* Increased line height for better readability. */
+  color: #4a5568; /* A softer, dark grey for the body text. */
+  margin-bottom: 1.5rem;
+}
+
+/* The "Contact Me" button. */
+.contactButton {
+  display: inline-block; /* Allows setting padding and margins. */
+  background-color: #007bff; /* Primary blue color. */
+  color: #ffffff; /* White text. */
+  padding: 0.8rem 2rem; /* Vertical and horizontal padding. */
+  border-radius: 50px; /* Pill-shaped button. */
+  text-decoration: none; /* Removes the underline. */
+  font-weight: bold;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Smooth transitions. */
+}
+
+/* Hover effect for the button. */
+.contactButton:hover {
+  transform: translateY(-3px); /* Lifts the button slightly. */
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3); /* Adds a blue glow effect. */
+}
+
+/* --- Responsive Styles for smaller screens --- */
 @media (max-width: 768px) {
-  .aboutWrap {
+  .aboutContainer {
+    /* On smaller screens, stack the items vertically instead of side-by-side. */
     flex-direction: column;
-    align-items: flex-start; /* chapga tekslash */
-    gap: 24px; /* ustunlar orasidagi bo'shliq */
+    text-align: center; /* Center the text for a better look when stacked. */
   }
-  .aboutPhoto {
-    width: 100%;
-    max-width: 380px;
-  }
-  .aboutPext {
-    text-align: left; /* matnni chapga tekslash */
-    max-width: 100%; /* maksimal kenglikni 100% ga o'rnatish */
-  }
-}
 
-/* ====== 7) Responsive ====== */
-@media (max-width: 768px) {
-  .card {
-    padding-bottom: 18px;
-  }
-  header {
-    font-size: 14px;
-  }
-  body {
-    background: #f7f7f7;
-  } /* biroz yengilroq */
-  .nav-list a {
-    display: block;
-    margin: 10px;
-  }
-  section {
-    padding: 40px 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-list {
-    justify-content: center;
-    gap: 20px;
-  }
-  .nav-list a {
-    margin: 5px;
-    padding: 9px 6px;
+  .imageWrapper {
+    margin-bottom: 2rem; /* Add space between the image and the text when stacked. */
+    max-width: 280px; /* Make the image a bit smaller on mobile. */
   }
 }

@@ -7,7 +7,6 @@ h2 {
 .projectsGrid {
   max-width: 75vw;
   margin: 0 auto;
-
   display: grid;
 
   /* avtomatik ustunlar */

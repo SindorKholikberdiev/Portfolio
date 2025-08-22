@@ -51,6 +51,29 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+@media (max-width: 1080px) {
+  .navWrapper {
+    margin-left: 0; /* Responsive holatda auto margin'ni bekor qilamiz */
+  }
+
+  .header {
+    /* position: relative o'zgarmaydi */
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .header h1 {
+    /* Kichik ekranda sarlavhani normal holatiga qaytaramiz */
+    position: static; /* 'absolute' ni bekor qilamiz */
+    transform: none; /* 'transform' ni bekor qilamiz */
+  }
+
+  .navList {
+    justify-content: center;
+  }
+}
+
 /* Responsive Breakpoint (768px dan kichik ekranlar uchun) */
 @media (max-width: 768px) {
   .navWrapper {
@@ -60,8 +83,8 @@
   .header {
     /* position: relative o'zgarmaydi */
     flex-direction: column;
-    gap: 16px;
-    padding: 16px;
+    gap: 15px;
+    padding: 10px;
   }
 
   .header h1 {

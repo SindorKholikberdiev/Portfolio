@@ -1,38 +1,55 @@
+// Import React and the CSS module for this component.
+import React from "react";
 import styles from "./About.module.css";
+
+// Import your professional photo. Make sure the path is correct.
+// O'zingizning professional rasmingizni import qiling. Yo'l to'g'ri ekanligiga ishonch hosil qiling.
+import profileImage from "../../assets/img/img-profile-photo.avif"; // Example path
+
 const About = () => {
   return (
-    //  About section: anchor id = "about"
-    <section id="about">
-      <h2>About me</h2>
-      {/* flex container 2 ustun rasm + matn  */}
-      <div className={styles.aboutWrap}>
-        {/* <!-- rasm ustuni --> */}
-        <img
-          src="img/1.jpg"
-          srcSet="img/1.jpg 1x, img/1.jpg 2x"
-          width="280"
-          height="280"
-          alt="Sindor's portrait"
-          className={styles.aboutPhoto}
-        />
+    // The main section container. The 'id' is important for anchor links from the navigation.
+    // Asosiy section konteyneri. 'id' navigatsiyadagi anchor havolalar uchun muhim.
+    <section id="about" className={styles.aboutSection}>
+      {/* A wrapper for the content to control max-width and centering. */}
+      {/* Kontentni maksimal kenglik va markazlashtirishni nazorat qilish uchun o'rovchi. */}
+      <div className={styles.aboutContainer}>
+        {/* Column 1: Image */}
+        {/* 1-ustun: Rasm */}
+        <div className={styles.imageWrapper}>
+          <img
+            src={profileImage}
+            alt="A professional portrait of Sindor Kholikberdiev"
+            className={styles.profileImage}
+          />
+        </div>
 
-        {/* <!-- matn ustuni --> */}
-        <div className={styles.aboutText}>
-          <p>
-            Hi, I'm Sindor Kholikberdiev, a web developer from Uzbekistan. I
-            create clean, responsive websites and applications.
+        {/* Column 2: Text Content */}
+        {/* 2-ustun: Matnli kontent */}
+        <div className={styles.textWrapper}>
+          <h2 className={styles.title}>About Me</h2>
+          <p className={styles.paragraph}>
+            Hi, I'm Sindor Kholikberdiev, a passionate Frontend Developer based
+            in Uzbekistan. I specialize in building clean, responsive, and
+            user-friendly web applications using modern technologies like React.
           </p>
-          <p>
-            I love coding, learning new technologies, and building projects that
-            make a difference.
+          <p className={styles.paragraph}>
+            I love the process of turning ideas into reality through code. My
+            goal is to not only write clean and efficient code but also to
+            create digital experiences that are intuitive and enjoyable for
+            everyone. I'm constantly learning and exploring new technologies to
+            improve my skills.
           </p>
-          {/* <!-- CTA tugma: Contact bo'limiga olib boradi --> */}
-          <a className="btn" href="#contact-info">
-            Contact me
+
+          {/* A clear call-to-action button that links to the contact section. */}
+          {/* Kontakt bo'limiga yo'naltiruvchi aniq harakatga chaqiruv tugmasi. */}
+          <a href="#contact-info" className={styles.contactButton}>
+            Contact Me
           </a>
         </div>
       </div>
     </section>
   );
 };
+
 export default About;

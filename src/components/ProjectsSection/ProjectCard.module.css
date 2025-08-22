@@ -19,7 +19,6 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* ===== MUAMMONING YECHIMI SHU YERDA ===== */
 /* Kartochka ichidagi rasm uchun stil */
 .card img {
   width: 100%; /* Eng muhim qator! Rasm o'z konteyneridan chiqib ketmasligi uchun */

@@ -1,0 +1,77 @@
+/* Fayl: src/components/Hero/Hero.module.css */
+
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh; /* Takes up a significant portion of the screen height. */
+  padding: 2rem;
+  background-color: #f8f9fa; /* A light background to feel welcoming. */
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #007bff; /* Using your brand's primary color. */
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.heroDescription {
+  font-size: 1.1rem;
+  color: #4a5568;
+  max-width: 600px; /* Limits the width for better readability. */
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+}
+
+.heroButton {
+  display: inline-block;
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.heroButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+}
+
+.secondaryButton {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.secondaryButton:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+}
