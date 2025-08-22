@@ -3,8 +3,15 @@ import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 
 const Header = ({ name }) => {
+  // 1. Dinamik ravishda klasslar ro'yxatini (string) tuzamiz
+  // Agar 'name' rost bo'lsa (bo'sh bo'lmasa), ikkala klassni qo'shamiz,
+  // aks holda faqat bitta klassni qoldiramiz.
+  const headerClasses = name
+    ? `${styles.header} ${styles.headerExpanded}`
+    : styles.header;
+
   return (
-    <header className={styles.header}>
+    <header className={headerClasses}>
       {/* <!--  Skip link: Tab bosilganda ko'rinadi, #main ga olib boradi --> */}
       <a className={styles.skipLink} href="#main">
         Skip to main content
@@ -13,7 +20,7 @@ const Header = ({ name }) => {
 
       {/*  shartli render qilish: agar name da biror matn bo'lsa (bo'sh bo'lmasa), keyin <h2> ni chiqaradi */}
 
-      {name && <h2> Welcome! {name}</h2>}
+      {name && <h2 className={styles.welcomeMessage}> Welcome! {name}</h2>}
 
       <nav aria-label="Primary" className={styles.navWrapper}>
         <ul className={styles.navList}>

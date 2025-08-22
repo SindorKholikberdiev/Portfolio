@@ -11,7 +11,7 @@
   color: #fff;
   z-index: 1000;
   box-shadow: var(--shadow-sm);
-  min-height: 100px;
+  min-height: 50px;
 }
 
 .header h1 {
@@ -52,6 +52,10 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+.headerExpanded {
+  min-height: 75px;
+}
+
 @media (max-width: 1080px) {
   .navWrapper {
     margin-left: 0; /* Responsive holatda auto margin'ni bekor qilamiz */
@@ -62,30 +66,11 @@
     flex-direction: column;
     gap: 15px;
     padding: 10px;
+    min-height: 75px;
   }
 
-  .header h1 {
-    /* Kichik ekranda sarlavhani normal holatiga qaytaramiz */
-    position: static; /* 'absolute' ni bekor qilamiz */
-    transform: none; /* 'transform' ni bekor qilamiz */
-  }
-
-  .navList {
-    justify-content: center;
-  }
-}
-
-/* Responsive Breakpoint (768px dan kichik ekranlar uchun) */
-@media (max-width: 768px) {
-  .navWrapper {
-    margin-left: 0; /* Responsive holatda auto margin'ni bekor qilamiz */
-  }
-
-  .header {
-    /* position: relative o'zgarmaydi */
-    flex-direction: column;
-    gap: 15px;
-    padding: 10px;
+  .headerExpanded {
+    min-height: 100px;
   }
 
   .header h1 {
@@ -117,4 +102,17 @@
   transform: translateY(0); /* fokusda ko'rinadi */
   outline: 2px solid var(--brand); /* fokusda outline */
   outline-offset: 2px; /* outline va element orasidagi bo'shliq */
+}
+
+.welcomeMessage {
+  color: #fff; /* Oq rang beramiz */
+  font-size: 1rem; /* Asosiy sarlavhadan kichikroq */
+  font-weight: 400; /* Oddiy qalinlik */
+
+  /* h1'ga xalaqit bermasligi uchun uni ham 'absolute' pozitsiyalaymiz */
+  position: absolute;
+  top: 75%; /* h1'dan biroz pastroqda */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap; /* Matn bir qatorga sig'ishi uchun */
 }
