@@ -16,7 +16,7 @@ import telegramIconPath from "../../assets/svg/send.svg";
 const ContactInfo = () => {
   return (
     // The main container div for the component.
-    <div className={styles.contactInfoCard} id="contact-info">
+    <div className={styles.contactInfoCard}>
       <h3>Contact Information</h3>
       <p>
         Feel free to reach out to me through any of the following channels. I'm

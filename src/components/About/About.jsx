@@ -1,5 +1,6 @@
 // Import React and the CSS module for this component.
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./About.module.css";
 
 // Import your professional photo. Make sure the path is correct.
@@ -43,9 +44,9 @@ const About = () => {
 
           {/* A clear call-to-action button that links to the contact section. */}
           {/* Kontakt bo'limiga yo'naltiruvchi aniq harakatga chaqiruv tugmasi. */}
-          <a href="#contact-info" className={styles.contactButton}>
-            Contact Me
-          </a>
+          <Link to="/contact" className={styles.contactButton}>
+            Contact me
+          </Link>
         </div>
       </div>
     </section>
